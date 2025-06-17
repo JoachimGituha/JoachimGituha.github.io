@@ -1,0 +1,286 @@
+:root {
+    --primary-color: #2722ba;
+    --secondary-color: #0cbb9e;
+    --background-dark: #1a1a1a;
+    --background-light: #f0f0f0;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --accent-color: #ff4757;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+header {
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+    min-height: 300px;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("img/info.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.7);
+    z-index: 2;
+}
+
+.info_perso {
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--card-shadow);
+}
+
+/*header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary-color);
+    transition: transform 0.3s ease;
+    z-index: 1;
+    
+}*/
+
+img.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Garantit que l'image remplit le cercle */
+    border: 3px solid #0cbb9e;
+    display: block; /* Évite les espaces indésirables */
+    margin: 0 auto 20px; /* Centrage */
+    z-index: 1;
+  }
+
+img.profile:hoover {
+    transform: scale(1.05);
+}
+
+header address a {
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+header address a:hover {
+    color: var(--accent-color);
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    border-top: 2px solid var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-dark);
+    text-decoration: none;
+}
+
+section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.box {
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    margin: 25px 0;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+h4 {
+    color: var(--text-light);
+    margin: 20px 0 15px;
+    font-size: 1.2rem;
+}
+
+.survol {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.survol:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.box img.content-img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 25px auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.box img.content-img:hover {
+    transform: scale(1.03);
+}
+
+section div p a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+section div p a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid var(--secondary-color);
+}
+
+.fleche {
+    width: 30px;
+    height: auto;
+    border: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.fleche:hover {
+    opacity: 1;
+}
+
+.image-link img {
+    width: 100%;
+    max-width: 600px;  /* Taille maximale */
+    height: 400px;     /* Hauteur fixe */
+    object-fit: cover; /* Conserve les proportions */
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol */
+.image-link img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Style spécifique pour la photo de profil (pour ne pas l'affecter) */
+.profile {
+    width: 150px;
+    height: 150px;
+    /* ... gardez vos styles existants ... */
+}
+
+/* Ajouts pour améliorer la lisibilité */
+p, li {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Animation subtile pour les boîtes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.box {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .info_perso {
+        padding: 20px;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+}
