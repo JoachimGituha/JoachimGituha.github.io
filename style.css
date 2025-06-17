@@ -65,6 +65,18 @@ header {
     
 }*/
 
+header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    border: 2px solid white;
+    z-index: 10;
+    display: block; /* Important */
+    margin: 0 auto; /* Centrer l'image */
+}
+
 img.profile {
     width: 150px;
     height: 150px;
@@ -73,7 +85,7 @@ img.profile {
     border: 3px solid #0cbb9e;
     display: block; /* Évite les espaces indésirables */
     margin: 0 auto 20px; /* Centrage */
-    z-index: 1;
+    z-index: 10;
   }
 
 img.profile:hoover {
