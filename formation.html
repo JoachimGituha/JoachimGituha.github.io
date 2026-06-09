@@ -5,17 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAE Se Présenter</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Accordion styles */
+        .year-accordion {
+            margin: 20px 0;
+        }
+
+        .year-toggle {
+            width: 100%;
+            background: #2a2a2a;
+            color: var(--text-light);
+            border: none;
+            padding: 18px 25px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .year-toggle:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        .year-toggle .arrow {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .year-toggle.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .year-content {
+            display: none;
+            padding: 10px 0 0 0;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .year-content.open {
+            display: block;
+        }
+
+        .year-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .competence-box {
+            background: rgba(255,255,255,0.07);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .competence-box:hover {
+            transform: translateX(4px);
+        }
+
+        .competence-box h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+
+        .competence-details h4 {
+            color: rgba(255,255,255,0.85);
+            margin-top: 16px;
+        }
+
+        .competence-details ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .competence-details ul li {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .placeholder-project {
+            background: rgba(12, 187, 158, 0.08);
+            border: 2px dashed var(--secondary-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .but2-badge {
+            background: #2a2a2a;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="header-background"></div>
-        <img src="img/photo.perso.jpg"  class="profile">
+        <img src="img/photo.perso.jpg" class="profile">
         <div class="info_perso">
             <h1>Joachim GUTTER</h1>
-            <p>Etudiant BUT réseau & télécommunication | Passionné par l'informatique</p>
+            <p>Etudiant BUT réseau &amp; télécommunication | Passionné par l'informatique</p>
             <address>
-                <p>Adresse: <a href="https://www.google.com/maps/place/67140+Barr/@48.4136445,7.3164005,12z/data=!3m1!4b1!4m6!3m5!1s0x4791522196c633d7:0x7beccb014900a570!8m2!3d48.407265!4d7.450204!16s%2Fm%2F03m4cnq?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" >67140, Barr</a></p>
+                <p>Adresse: <a href="https://www.google.com/maps/place/67140+Barr/@48.4136445,7.3164005,12z" target="_blank">67140, Barr</a></p>
                 <p>Email: <a href="mailto:joachimgutter@gmail.com">joachimgutter@gmail.com</a></p>
             </address>
         </div>
@@ -23,235 +130,382 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">A Propos </a></li>
-            <li><a href="CV.html" > En savoir plus sur moi</a></li>
+            <li><a href="index.html">À Propos</a></li>
+            <li><a href="CV.html">En savoir plus sur moi</a></li>
             <li><a href="formation.html">Formation | Projets</a></li>
-            <li><a href="experiences.html">Expériences professionnelles </a></li>
+            <li><a href="experiences.html">Expériences professionnelles</a></li>
         </ul>
     </nav>
 
     <section id="presentation">
-        <h2 id="form">Formation : </h2>
-        <div class="box">
-            <section id="competences-but1">
-    <h2>Compétences du BUT1 Réseaux & Télécommunications</h2>
-  
-    <div class="competence-box">
-    <h3>1. Assister l'administration des réseaux</h3>
-    <div class="competence-details">
-        <h4>Apprentissages clés :</h4>
-        <ul>
-            <li>AC11.03 - Configurer les fonctions de base du réseau local</li>
-            <li>AC11.05 - Identifier et signaler les dysfonctionnements</li>
-            <li>AC11.06 - Installer un poste client et expliquer la procédure</li>
-            <li>AC11.02 - Comprendre l'architecture des systèmes numériques</li>
-            <li>AC11.04 - Interagir avec les systèmes d'exploitation</li>
-        </ul>
+        <h2 id="form">Formation &amp; Projets</h2>
 
-        <h4>Composantes essentielles :</h4>
-        <ul>
-            <li>CE1.01 - Choisir les solutions et technologies réseaux adaptées</li>
-            <li>CE1.02 - Respecter les principes fondamentaux de la sécurité informatique</li>
-            <li>CE1.03 - Utiliser une approche rigoureuse pour la résolution des dysfonctionnements</li>
-            <li>CE1.04 - Respecter les règles métiers</li>
-            <li>CE1.05 - Assurer une veille technologique</li>
-        </ul>
-        
-        <h4>PROJET :</h4>
-        <p>Construire un réseau informatique</p>
-        
-        <a href="img/reseau.png" class="image-link">
-            <img src="img/reseau.png" alt="Réseau informatique">
+        <!-- ===================== BUT 1 ===================== -->
+        <div class="year-accordion">
+            <button class="year-toggle" onclick="toggleYear(this)">
+                <span>BUT 1 — Compétences &amp; Projets <span class="year-badge">2024–2025</span></span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="year-content">
+
+                <!-- Compétence 1 -->
+                <div class="competence-box">
+                    <h3>1. Assister l'administration des réseaux</h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC11.03 – Configurer les fonctions de base du réseau local</li>
+                            <li>AC11.05 – Identifier et signaler les dysfonctionnements</li>
+                            <li>AC11.06 – Installer un poste client et expliquer la procédure</li>
+                            <li>AC11.02 – Comprendre l'architecture des systèmes numériques</li>
+                            <li>AC11.04 – Interagir avec les systèmes d'exploitation</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE1.01 – Choisir les solutions et technologies réseaux adaptées</li>
+                            <li>CE1.02 – Respecter les principes fondamentaux de la sécurité informatique</li>
+                            <li>CE1.03 – Utiliser une approche rigoureuse pour la résolution des dysfonctionnements</li>
+                            <li>CE1.04 – Respecter les règles métiers</li>
+                            <li>CE1.05 – Assurer une veille technologique</li>
+                        </ul>
+                        <h4>PROJET : Construire un réseau informatique</h4>
+                        <a href="img/reseau.png" class="image-link">
+                            <img src="img/reseau.png" alt="Réseau informatique">
+                        </a>
+                        <p>Construction d'un réseau informatique avec différents services vus tout au long de l'année. Mise en place d'un service DHCP et des différents serveurs (production, dev, sauvegarde). Construction des VLAN, mise en place Spanning-tree, ACL, NAT et routage inter-VLAN.</p>
+                        <p><strong>Compétences mobilisées :</strong> Segmentation réseau (VLAN), routage inter-VLAN, sécurisation des ports (ACL), gestion des services (FTP, web, synchronisation).</p>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Conception et administration de l'infrastructure du réseau informatique d'une entreprise</li>
+                            <li>Installation et administration des services réseau informatique d'une entreprise</li>
+                            <li>Déploiement et administration des solutions fixes pour les clients d'un opérateur</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Compétence 2 -->
+                <div class="competence-box">
+                    <h3>2. Découvrir les transmissions et la ToIP</h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC12.01 – Mesurer et analyser les signaux</li>
+                            <li>AC12.03 – Déployer des supports de transmission</li>
+                            <li>AC12.04 – Connecter les systèmes de téléphonie sur IP</li>
+                            <li>AC12.05 – Communiquer avec un tiers et adapter son discours</li>
+                            <li>AC12.02 – Caractériser des systèmes de transmissions</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE2.01 – Communiquer avec le client et les acteurs (en anglais si besoin)</li>
+                            <li>CE2.02 – Faire preuve d'une démarche scientifique</li>
+                            <li>CE2.03 – Choisir les solutions et technologies adaptées</li>
+                            <li>CE2.04 – Proposer des solutions respectueuses de l'environnement</li>
+                        </ul>
+                        <h4>PROJET : Découvrir un dispositif de transmission</h4>
+                        <a href="img/heatmap.png" class="image-link">
+                            <img src="img/heatmap.png" alt="Heatmap WiFi">
+                        </a>
+                        <p>Projet sur la découverte et l'analyse des signaux WiFi 2,4 et 5 GHz. Utilisation du logiciel Acrylic, câblage d'un AP via baie informatique et fabrication des câbles RJ-45.</p>
+                        <p><strong>Compétences mobilisées :</strong> Analyse réseau, heatmaps, optimisation du placement des AP, simulation Packet Tracer, sécurité PoE.</p>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Déploiement des supports et systèmes de transmission</li>
+                            <li>Mise en service et administration des équipements d'accès fixe ou mobile</li>
+                            <li>Déploiement et administration des accès sans fil pour l'entreprise</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Compétence 3 -->
+                <div class="competence-box">
+                    <h3>3. S'intégrer dans un service informatique</h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC13.02 – Lire, exécuter et modifier un programme</li>
+                            <li>AC13.03 – Traduire un algorithme dans un langage donné</li>
+                            <li>AC13.04 – Connaître les technologies d'un site Web</li>
+                            <li>AC13.06 – Travailler en environnement collaboratif</li>
+                            <li>AC13.01 – Utiliser un système informatique et ses outils</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE3.01 – Être à l'écoute des besoins du client</li>
+                            <li>CE3.02 – Documenter le travail réalisé</li>
+                            <li>CE3.03 – Utiliser les outils numériques à bon escient</li>
+                            <li>CE3.04 – Choisir les outils de développement adaptés</li>
+                            <li>CE3.05 – Intégrer les problématiques de sécurité</li>
+                        </ul>
+                        <h4>PROJET : Traiter des données</h4>
+                        <a href="img/eckle.png" class="image-link">
+                            <img src="img/eckle.png" alt="Outil de reporting">
+                        </a>
+                        <p>Outil de reporting réalisé sous forme de scripts Python et PowerShell : analyse et tri de fichiers avec affichage graphique en camembert pour supprimer des fichiers d'un répertoire donné.</p>
+                        <h4>PROJET : Se présenter</h4>
+                        <a href="img/se_presenter.png" class="image-link">
+                            <img src="img/se_presenter.png" alt="Site CV interactif">
+                        </a>
+                        <p>Créer un CV interactif sous forme de site web multipage, mettant en valeur compétences, formations et expériences professionnelles.</p>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Conception, déploiement et maintenance du système d'information d'une entreprise</li>
+                            <li>Automatisation du déploiement et de la maintenance des outils logiciels</li>
+                            <li>Développement d'outils informatiques à usage interne d'une équipe</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===================== BUT 2 ===================== -->
+        <div class="year-accordion">
+            <button class="year-toggle but2-badge" onclick="toggleYear(this)">
+                <span>BUT 2 — Compétences &amp; Projets ROM <span class="year-badge">2025–2026</span></span>
+                <span class="arrow">▼</span>
+            </button>
+            <div class="year-content">
+
+                <!-- Compétence 1 BUT2 -->
+                <div class="competence-box">
+                    <h3>1. Administrer un réseau</h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC21.01 – Configurer et dépanner le routage dynamique dans un réseau</li>
+                            <li>AC21.02 – Configurer et expliquer une politique simple de QoS et les fonctions de base de la sécurité d'un réseau</li>
+                            <li>AC21.03 – Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée</li>
+                            <li>AC21.04 – Déployer des services réseaux avancés</li>
+                            <li>AC21.05 – Identifier les réseaux opérateurs et l'architecture d'Internet</li>
+                            <li>AC21.06 – Travailler en équipe pour développer ses compétences professionnelles</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE1.01 – Choisir les solutions et technologies réseaux adaptées</li>
+                            <li>CE1.02 – Respecter les principes fondamentaux de la sécurité informatique</li>
+                            <li>CE1.03 – Utiliser une approche rigoureuse pour la résolution des dysfonctionnements</li>
+                            <li>CE1.04 – Respecter les règles métiers</li>
+                            <li>CE1.05 – Assurer une veille technologique</li>
+                        </ul>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Conception et administration de l'infrastructure du réseau informatique d'une entreprise</li>
+                            <li>Installation et administration des services réseau informatique d'une entreprise</li>
+                            <li>Déploiement et administration des solutions fixes pour les clients d'un opérateur de télécommunication</li>
+                        </ul>
+                        <h4>PROJET : SAE 3.03- Concevoir un réseau multisites</h4>
+                          <a href="img/FAI.png" class="image-link">
+                            <img src="img/FAI.png" alt="Réseau Fournisseur Accès Internet">
+                        </a>
+                        
+                        <p>
+                            Conception d'un réseau de Fournisseur d'Accès à Internet. Mise en place de protocoles de routage et d'interconnexion de sites tels que BGP et MPLS.
+                            Installation de services réseau permettant de simuler l'infrastructure informatique d'entreprises disposant de plusieurs sites.
+                        </p>
+
+                        <p><strong>Compétences mobilisées :</strong> Routage dynamique (OSPF, BGP), MPLS, interconnexion de sites distants, virtualisation de services réseau, administration d'infrastructures multi-sites.</p>
+
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Conception et administration de l'infrastructure réseau d'une entreprise multi-sites</li>
+                            <li>Déploiement de services réseau chez un opérateur télécom</li>
+                            <li>Gestion des interconnexions entre réseaux d'entreprise et opérateurs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Compétence 2 BUT2 -->
+                <div class="competence-box">
+                    <h3>2. Maîtriser les composantes des solutions de connexion des entreprises et des usagers</h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC22.01 – Déployer et caractériser des systèmes de transmissions complexes</li>
+                            <li>AC22.02 – Mettre en place un accès distant sécurisé</li>
+                            <li>AC22.03 – Mettre en place une connexion multi-site via un réseau opérateur</li>
+                            <li>AC22.04 – Déployer des réseaux d'accès des opérateurs</li>
+                            <li>AC22.05 – Capacité à questionner un cahier des charges RT</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE2.01 – Communiquer avec le client et les acteurs (en anglais si besoin)</li>
+                            <li>CE2.02 – Faire preuve d'une démarche scientifique</li>
+                            <li>CE2.03 – Choisir les solutions et technologies adaptées</li>
+                            <li>CE2.04 – Proposer des solutions respectueuses de l'environnement</li>
+                        </ul>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Déploiement des supports et systèmes de transmission</li>
+                            <li>Mise en service et administration des équipements d'accès fixe ou mobile d'un opérateur</li>
+                            <li>Déploiement et administration des accès sans fil pour l'entreprise</li>
+                            <li>Déploiement des systèmes de communications</li>
+                        </ul>
+                         <h4>PROJET : SAE 3.01- Prise Wifi Intelligente</h4>
+                          <a href="img/sae2.jpg" class="image-link">
+                            <img src="img/sae2.jpg" alt="Prise Wifi Intelligente">
+                        </a>
+
+                        <p>
+                            Projet consistant à la création d'une prise intelligente pilotable via le WiFi. Elle permet d'allumer ou d'éteindre un appareil
+                            électrique depuis un smartphone ou une interface web. Ce projet a été réalisé grâce à une carte ESP, une LED représentant l'état de la prise (allumée ou éteinte),
+                            une résistance, une breadboard et un ordinateur.
+                        </p>
+
+                        <p><strong>Compétences mobilisées :</strong> Développement embarqué, programmation ESP32/ESP8266, communication WiFi, conception d'interfaces web, intégration matériel/logiciel.</p>
+
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Déploiement de solutions connectées pour l'Internet des Objets (IoT)</li>
+                            <li>Développement d'applications communicantes pour les équipements réseau</li>
+                            <li>Intégration et validation de systèmes connectés</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Compétence 3 BUT2 -->
+                <div class="competence-box">
+                    <h3>3. Développer une application R&amp;T</h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC23.01 – Automatiser l'administration système avec des scripts</li>
+                            <li>AC23.02 – Développer une application à partir d'un cahier des charges donné, pour le Web ou les périphériques mobiles</li>
+                            <li>AC23.03 – Utiliser un protocole réseau pour programmer une application client/serveur</li>
+                            <li>AC23.04 – Installer et administrer un système de gestion de données</li>
+                            <li>AC23.05 – Accéder à un ensemble de données depuis une application et/ou un site web</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE3.01 – Être à l'écoute des besoins du client</li>
+                            <li>CE3.02 – Documenter le travail réalisé</li>
+                            <li>CE3.03 – Utiliser les outils numériques à bon escient</li>
+                            <li>CE3.04 – Choisir les outils de développement adaptés</li>
+                            <li>CE3.05 – Intégrer les problématiques de sécurité</li>
+                        </ul>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Conception, déploiement et maintenance du système d'information d'une entreprise</li>
+                            <li>Automatisation du déploiement et de la maintenance des outils logiciels</li>
+                            <li>Développement d'outils informatiques à usage interne d'une équipe</li>
+                        </ul>
+                        <h4>PROJET : SAE 3.02 – Conception d'une architecture distribuée avec routage en oignon</h4>
+                          <a href="img/tor.png" class="image-link">
+                            <img src="img/tor.png" alt="Développer des applications communicantes">
+                        </a>
+                        <p>
+                           Ce projet consiste à concevoir un système de communication anonyme basé sur un ensemble de routeurs virtuels. 
+                           Chaque message envoyé par un client traverse plusieurs routeurs sélectionnés aléatoirement avant d’atteindre sa destination, afin d’assurer un anonymat similaire au réseau TOR.
+                        </p>
+                        <p><strong>Compétences mobilisées :</strong> Programmation réseau, architecture client-serveur, chiffrement des communications, gestion des sockets, conception d'applications distribuées.</p>
+
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Développement d'applications communicantes sécurisées</li>
+                            <li>Mise en œuvre de solutions garantissant la confidentialité des échanges</li>
+                            <li>Conception d'architectures logicielles distribuées</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Compétence 4 BUT2 ROM -->
+                <div class="competence-box">
+                    <h3>4. Gérer les infrastructures des réseaux opérateurs <small>(ROM)</small></h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC24.01ROM – Administrer les réseaux d'accès fixes et mobiles</li>
+                            <li>AC24.02ROM – Virtualiser des services réseaux</li>
+                            <li>AC24.03ROM – Décrire et comprendre l'architecture et les offres des opérateurs</li>
+                            <li>AC24.04ROM – Gérer le routage/commutation et les interconnexions</li>
+                            <li>AC24.05ROM – Automatiser la gestion des équipements réseaux</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE4.01 – Respecter les règles métiers et les délais</li>
+                            <li>CE4.02 – Assurer une communication optimale avec le client</li>
+                            <li>CE4.03 – Mettre en place des processus opérationnels de gestion d'incidents</li>
+                            <li>CE4.04 – Piloter les acteurs terrain</li>
+                        </ul>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Gestion des services d'un ensemble de clients entreprises d'un opérateur</li>
+                            <li>Gestion du déploiement de nouvelles infrastructures</li>
+                        </ul>
+                         <h4>PROJET : SAE 3.ROM.04 – Déployer un service de téléphonie multisites</h4>
+                          <a href="img/yealink.jpeg" class="image-link">
+                            <img src="img/yealink.jpeg" alt="Telephonie multi-site">
+                        </a>
+                        <p>
+                           Projet consistant à la mise en place de services de téléphonie reproduisant le fonctionnement d'un cabinet médical. 
+                           Installation et configuration de deux téléphones d'entreprise et d'un téléphone logiciel simulant un assistant, un secrétaire et un médecin. 
+                           Configuration d'un server IPBX et de toutes les fonctions téléphoniques utiles en entreprise.
+                        </p>
+
+                        <p><strong>Compétences mobilisées :</strong> Administration d'IPBX, configuration SIP, gestion de la ToIP, déploiement de postes téléphoniques, paramétrage des services de communication.</p>
+
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Déploiement et administration des services de téléphonie d'entreprise</li>
+                            <li>Gestion des infrastructures de communication unifiée</li>
+                            <li>Support et maintenance des systèmes de téléphonie IP</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Compétence 5 BUT2 ROM -->
+                <div class="competence-box">
+                    <h3>5. Mettre en œuvre le système de téléphonie de l'entreprise <small>(ROM)</small></h3>
+                    <div class="competence-details">
+                        <h4>Apprentissages clés :</h4>
+                        <ul>
+                            <li>AC25.01ROM – Choisir une architecture et déployer des services de ToIP</li>
+                            <li>AC25.02ROM – Administrer un service de téléphonie pour l'entreprise</li>
+                            <li>AC25.03ROM – Mettre en place une politique de QoS pour les applications</li>
+                        </ul>
+                        <h4>Composantes essentielles :</h4>
+                        <ul>
+                            <li>CE5.01 – Automatiser la gestion réseau des communications</li>
+                            <li>CE5.02 – Sécuriser les infrastructures</li>
+                            <li>CE5.03 – Gérer les interconnexions</li>
+                            <li>CE5.04 – Assurer une communication optimale avec le client</li>
+                            <li>CE5.05 – Respecter les règles métiers et les délais</li>
+                        </ul>
+                        <h4>Situations professionnelles :</h4>
+                        <ul>
+                            <li>Déploiement et administration des services de communication</li>
+                            <li>Administration des services multimédia</li>
+                        </ul>
+                        <h4>PROJET : SAE3.ENTREPRISE_FA – Apprentissage en entreprise</h4>
+                          <a href="img/entreprise.png" class="image-link">
+                            <img src="img/entreprise.png" alt="Apprentissage Entreprise">
+                        </a>
+                        <p>
+                           Acquisition des compétences à travers mon apprentissage en entreprise et à travers différents projets effectués avec mon maître d'apprentissage.
+
+                        </p>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <a href="index.html">
+            <img src="img/fleche.jpeg" class="fleche">
         </a>
-        <p> Construction d'un réseau informatique avec différents services vu tout au long de l'année. 
-        Mise en place d'un service DHCP et des autres différents serveurs (production, dev, sauvegarde). Construction des VLAN, mise en place Spanning-tree, ACL, du NAT et routage inter-Vlan.    
-        <p> Compétences mobilisées : </p>
+    </footer>
 
-        <p> Segmentation réseau (masquage variable, VLAN).</p>
-        
-        <p> Routage inter-VLAN et équilibrage de charge.</p>
-        
-        <p> Sécurisation des ports et filtrage (ACL).</p>
-        
-        <p> Gestion des services (FTP, web, synchronisation).</p>
-        
-        <p> Bénéfice : Maîtrise des réseaux locaux complexes et sécurisés, préparation aux environnements professionnels.</p>
-        </p>
-
-        <h4>Situations professionnelles :</h4>
-        <ul>
-            <li>Conception et administration de l'infrastructure du réseau informatique d'une entreprise</li>
-            <li>Installation et administration des services réseau informatique d'une entreprise</li>
-            <li>Déploiement et administration des solutions fixes pour les clients d'un opérateur de télécommunication</li>
-        </ul>
-    </div>
-</div>
-
-<div class="competence-box">
-    <h3>2. Découvrir les transmissions et la ToIP</h3>
-    <div class="competence-details">
-        <h4>Apprentissages clés :</h4>
-        <ul>
-            <li>AC12.01 - Mesurer et analyser les signaux</li>
-            <li>AC12.03 - Déployer des supports de transmission</li>
-            <li>AC12.04 - Connecter les systèmes de téléphonie sur IP</li>
-            <li>AC12.05 - Communiquer avec un tiers et adapter son discours</li>
-            <li>AC12.02 - Caractériser des systèmes de transmissions</li>
-        </ul>
-        <h4>Composantes essentielles :</h4>
-        <ul>
-            <li>CE2.01 - Communiquer avec le client et les acteurs (en anglais si besoin)</li>
-            <li>CE2.02 - Faire preuve d'une démarche scientifique</li>
-            <li>CE2.03 - Choisir les solutions et technologies adaptées</li>
-            <li>CE2.04 - Proposer des solutions respectueuses de l'environnement</li>
-        </ul>
-        
-        <h4>PROJET :</h4>
-        <p>Découvrir un dispositif de transmission</p>        
-        
-        <a href="img/heatmap.png" class="image-link">
-            <img src="img/heatmap.png">
-        </a>
-
-        <p> Projet sur la découverte et l'analyse des singaux wifi 2.4 et 5 GHz. Utilisation du logiciel Acrylic. Cablâge d'un AP via baie informatique et fabrication des cable RJ-45.  </p>
-        <p>Compétences mobilisées :</p>
-
-        <p> Analyse réseau : Mesure de signaux Wifi, interprétation de heatmaps.</p>
-        
-        <p>Optimisation : Placement des AP, sélection des canaux.</p>
-        
-        <p>Simulation : Configuration de réseaux virtuels (Packet Tracer).</p>
-        
-        <p>Sécurité : Gestion du PoE, compatibilité matérielle.</p>
-        
-        <p>Bénéfice : Maîtrise des outils professionnels pour l'audit et l'optimisation de réseaux sans fil.</p>
-        
-        <h4>Situations professionnelles :</h4>
-        <ul>
-            <li>Déploiement des supports et systèmes de transmission</li>
-            <li>Mise en service et administration des équipements d'accès fixe ou mobile d'un opérateur de télécommunications</li>
-            <li>Déploiement et administration des accès sans fil pour l'entreprise</li>
-            <li>Déploiement des systèmes de communications</li>
-        </ul>
-    </div>
-</div>
-
-<div class="competence-box">
-    <h3>3. S'intégrer dans un service informatique</h3>
-    <div class="competence-details">
-        <h4>Apprentissages clés :</h4>
-        <ul>
-            <li>AC13.02 - Lire, exécuter et modifier un programme</li>
-            <li>AC13.03 - Traduire un algorithme dans un langage donné</li>
-            <li>AC13.04 - Connaître les technologies d'un site Web</li>
-            <li>AC13.06 - Travailler en environnement collaboratif</li>
-            <li>AC13.01 - Utiliser un système informatique et ses outils</li>
-        </ul>
-        <h4>Composantes essentielles :</h4>
-        <ul>
-            <li>CE3.01 - Être à l'écoute des besoins du client</li>
-            <li>CE3.02 - Documenter le travail réalisé</li>
-            <li>CE3.03 - Utiliser les outils numériques à bon escient</li>
-            <li>CE3.04 - Choisir les outils de développement adaptés</li>
-            <li>CE3.05 - Intégrer les problématiques de sécurité</li>
-        </ul> 
-        
-        <h4>PROJET :</h4>
-        <p>Traiter des données</p>
-
-        <a href="img/eckle.png" class="image-link">
-            <img src="img/eckle.png">
-        </a>
-        <p>Outil de reporting pour réaliser sous la forme de plusieurs sripts (python et powershell) un outil d'analyse et de tri de fichiers avec affichage graphique en camembert pour supprimer des fichiers d'un repértoire donné.</p>
-        <p>     Sélection du répertoire via une interface graphique (Python + QFileDialog). </p>
-
-        <p>  Analyse récursive des fichiers, tri par taille, et filtrage (seuil + limite de 100 fichiers).</p>
-        
-        <p>   Export en JSON des résultats.</p>
-        
-        <p>   Affichage graphique :</p>
-        
-        <p>      Camembert pour visualiser les tailles.</p>
-        <p>              Légendes avec cases à cocher (25 par page).</p>
-        
-        <p>     Bouton pour générer un script de suppression.</p>
-        
-        <p> Script PowerShell pour lancer l’outil et gérer les suppressions (avec confirmation).</p>
-        <p>Bénéfice : Outil pratique pour les administrateurs système et utilisateurs avancés.</p>
-
-
-        <p>Se présenter: </p>
-
-        <a href="img/se_presenter.png" class="image-link">
-            <img src="img/se_presenter.png">    
-        </a>
-
-        <p>Objectif :
-            Créer un CV interactif sous forme de site web multipage, mettant en valeur vos compétences, formations et expériences professionnelles, avec une navigation fluide entre les sections.</p>
-        <p>        Sections synthétiques :</p>
-
-        <p>    Formations (liens vers une page détaillée).</p>
-
-        <p>    Diplômes (liens vers une page détaillée).</p>
-
-        <p>   Expériences professionnelles (liens vers une page détaillée).</p>
-
-        <p> Compétences : Organisées en 3 colonnes (Flexbox) :</p>
-
-        <p>    Compétences RT.</p>
-
-        <p>    Compétences techniques.</p>
-
-        <p>   Compétences humaines.</p>
-
-        <p> Informations diverses : Langues, hobbies, activités culturelles.</p>
-
-        <p>Pages secondaires (au moins 2) :</p>
-
-        <p>Détails des formations (modules, projets).</p>
-
-        <p>Détails des diplômes (résultats, liens vers établissements).</p>
-
-        <p>Détails des expériences (postes, entreprises).</p>
-
-        <p> Fonctionnalités techniques</p>
-
-        <p> Navigation par ancres :</p>
-
-        <p>Liens internes (#nom_ancre) pour sauter entre les sections.</p>
-
-        <p>Effet de défilement doux (scroll-behavior: smooth).</p>
-
-        <p>Liens externes :</p>
-
-        <p>mailto: pour l’email.</p>
-
-        <p>Google Maps pour l’adresse.</p>
-
-        <p>Sites web des établissements/entreprises.</p>
-
-        <p>CSS unique : Un seul fichier CSS pour toutes les pages.</p>
-
-
-        <h4>Situations professionnelles :</h4>
-        <ul>
-            <li>Conception, déploiement et maintenance du système d'information d'une entreprise</li>
-            <li>Automatisation du déploiement et de la maintenance des outils logiciels</li>
-            <li>Développement d'outils informatiques à usage interne d'une équipe</li>
-        </ul>
-
-
-    </div>
-
-</div>
-</section>
-</section> .
-<footer>
-    <a href="index.html">
-        <img src="img/fleche.jpeg" class="fleche">
-    </a>
-</footer>
-
-
+    <script>
+        function toggleYear(btn) {
+            btn.classList.toggle('open');
+            const content = btn.nextElementSibling;
+            content.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
