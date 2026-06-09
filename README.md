@@ -1,2 +1,2 @@
 lien du site : 
-https://joachimgituha.github.io/formation.html
+https://joachimgituha.github.io
